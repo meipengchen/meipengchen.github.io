@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meipengchen.github.io/"/>
-  <updated>2020-01-20T09:02:57.071Z</updated>
+  <updated>2020-01-21T02:43:04.571Z</updated>
   <id>http://meipengchen.github.io/</id>
   
   <author>
@@ -17,13 +17,22 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>My New Post</title>
+    <title>菜鸟学编程（第一天）函数及模块使用</title>
     <link href="http://meipengchen.github.io/2020/01/20/my-new-post/"/>
     <id>http://meipengchen.github.io/2020/01/20/my-new-post/</id>
     <published>2020-01-20T09:02:57.000Z</published>
-    <updated>2020-01-20T09:02:57.071Z</updated>
+    <updated>2020-01-21T02:43:04.571Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在未使用函数模块之前，如果需要进行阶乘的运算，我们需要像下面这样：&lt;/p&gt;
+&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;m &lt;span class=&quot;token
+        
+      
     
     </summary>
     

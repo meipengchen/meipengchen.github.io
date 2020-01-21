@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="My New Post, Dio">
-    <meta name="description" content="My New Post | Dio">
+    <meta name="keywords" content="菜鸟学编程（第一天）函数及模块使用, Dio">
+    <meta name="description" content="在未使用函数模块之前，如果需要进行阶乘的运算，我们需要像下面这样：
+m = int(input(&#34;请输入一个数：&#34;))
+fm = 1
+for num in range(1,m+1):
+      fm*=num
+print(fm)
+当进行多">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>My New Post | Dio</title>
+    <title>菜鸟学编程（第一天）函数及模块使用 | Dio</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">My New Post</h1>
+                    <h1 class="description center-align post-title">菜鸟学编程（第一天）函数及模块使用</h1>
                 </div>
             </div>
         </div>
@@ -455,7 +461,74 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>在未使用函数模块之前，如果需要进行阶乘的运算，我们需要像下面这样：</p>
+<pre class=" language-python"><code class="language-python">m <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">"请输入一个数："</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+fm <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+      fm<span class="token operator">*=</span>num
+<span class="token keyword">print</span><span class="token punctuation">(</span>fm<span class="token punctuation">)</span></code></pre>
+<p>当进行多项阶乘运算的时候代码中的重复部分会造成代码冗长：</p>
+<pre class=" language-python"><code class="language-python">m<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'m = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+n<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'n = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+z<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'z= '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+fm <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fm <span class="token operator">*=</span> num
+fn <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fn <span class="token operator">*=</span> num
+fz <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> z <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fz <span class="token operator">*=</span> num
+<span class="token keyword">print</span><span class="token punctuation">(</span>fm <span class="token operator">//</span> fn <span class="token operator">//</span> fz<span class="token punctuation">)</span></code></pre>
+<p>所以我们需要封装一个函数模块，在阶乘计算的时候调用它，代码会变得相对简洁：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> factorial
+m<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'m=：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+n<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'n=：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+z<span class="token operator">=</span>int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'z=：'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>factorial<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token operator">//</span>factorial<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token operator">//</span>factorial<span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>函数的定义使用def来进行定义，其命名规则与变量一致，在函数名后面的圆括号内是传递参数，相当于数学中的自变量，运行完之后通过return返回一个值，相当于数学中的因变量python中的函数参数可以有默认参数，也可以设置成可变参数，所以python不需要像其他语言一样支持重载，如以下这个例子：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">power_7</span><span class="token punctuation">(</span>m<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    fm<span class="token operator">=</span><span class="token number">1</span>
+    <span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        fm<span class="token operator">*=</span>num
+    <span class="token keyword">return</span> fm
+<span class="token keyword">print</span><span class="token punctuation">(</span>power_7<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#无指定参数就是默认值输出3!</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>power_7<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>在实际中，一个函数的参数个数我们是无法确定的，这时候可以用可变参数的方式对函数进行定义：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">add_7</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true">#在参数名前打一个*表示其是可变参数</span>
+    <span class="token keyword">for</span> num <span class="token keyword">in</span> args<span class="token punctuation">:</span>
+        total<span class="token operator">+=</span>num
+    <span class="token keyword">return</span> total
+<span class="token keyword">print</span><span class="token punctuation">(</span>add_7<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>add_7<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>add_7<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h3 id="用模块管理函数"><a href="#用模块管理函数" class="headerlink" title="用模块管理函数"></a>用模块管理函数</h3><p>在同一个.py文件中可能定义了相同名字的函数造成冲突，这时候需要模块来管理函数。python中每个文件是一个模块，不同的模块允许有同名函数：</p>
+<p>module1.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">seven_7</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span class="token punctuation">)</span></code></pre>
+<p>module2.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">seven_7</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'goodbye world'</span><span class="token punctuation">)</span></code></pre>
+<p>test.py</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> module1 <span class="token keyword">as</span> m1
+<span class="token keyword">import</span> module2 <span class="token keyword">as</span> m2
+<span class="token keyword">print</span><span class="token punctuation">(</span>m1<span class="token punctuation">.</span>seven_7<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>m2<span class="token punctuation">.</span>seven_7<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>在模块当中可能还含有其他可执行的代码，在导入该模块时会执行，我们需要如下配置条件来避免这种情况：</p>
+<p>module3.py</p>
+<pre><code>def foo():
+    pass
+def bar():
+    pass
+# __name__是Python中一个隐含的变量它代表了模块的名字
+# 只有被Python解释器直接执行的模块的名字才是__main__
+if __name__ == &#39;__main__&#39;:
+    print(&#39;call foo()&#39;)
+    foo()
+    print(&#39;call bar()&#39;)
+    bar()</code></pre><p>这样的话除非直接运行该模块，不然if条件下的语句不会被执行到。</p>
+
             </div>
             <hr/>
 
@@ -690,15 +763,21 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="My New Post">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="菜鸟学编程（第一天）函数及模块使用">
                         
-                        <span class="card-title">My New Post</span>
+                        <span class="card-title">菜鸟学编程（第一天）函数及模块使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            在未使用函数模块之前，如果需要进行阶乘的运算，我们需要像下面这样：
+m = int(input("请输入一个数："))
+fm = 1
+for num in range(1,m+1):
+      fm*=num
+print(fm)
+当进行多
                         
                     </div>
                     <div class="publish-info">
